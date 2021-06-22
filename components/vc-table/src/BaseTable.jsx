@@ -5,7 +5,6 @@ import TableHeader from './TableHeader';
 import TableRow from './TableRow';
 import ExpandableRow from './ExpandableRow';
 import { mergeProps, getListeners } from '../../_util/props-util';
-import { connect } from '../../_util/store';
 function noop() {}
 const BaseTable = {
   name: 'BaseTable',
@@ -15,13 +14,13 @@ const BaseTable = {
     tableClassName: PropTypes.string.isRequired,
     hasHead: PropTypes.bool.isRequired,
     hasBody: PropTypes.bool.isRequired,
-    store: PropTypes.object.isRequired,
     expander: PropTypes.object.isRequired,
     getRowKey: PropTypes.func,
     isAnyColumnsFixed: PropTypes.bool,
   },
   inject: {
     table: { default: () => ({}) },
+    store: { from: 'table-store', default: () => ({}) },
   },
   methods: {
     getColumns(cols) {
@@ -37,9 +36,7 @@ const BaseTable = {
       }));
     },
     handleRowHover(isHover, key) {
-      this.store.setState({
-        currentHoverKey: isHover ? key : null,
-      });
+      this.store.currentHoverKey = isHover ? key : null;
     },
 
     renderRows(renderData, indent, ancestorKeys = []) {
@@ -146,7 +143,7 @@ const BaseTable = {
   render() {
     const { sComponents: components, prefixCls, scroll, data, getBodyWrapper } = this.table;
     const { expander, tableClassName, hasHead, hasBody, fixed, isAnyColumnsFixed } = this.$props;
-
+    const columns = this.getColumns();
     const tableStyle = {};
 
     if (!fixed && scroll.x) {
@@ -157,6 +154,14 @@ const BaseTable = {
       tableStyle.width = scroll.x === true ? tableWidthScrollX : scroll.x;
       tableStyle.width =
         typeof tableStyle.width === 'number' ? `${tableStyle.width}px` : tableStyle.width;
+    }
+    if (fixed) {
+      const width = columns.reduce((sum, { width: w }) => {
+        return sum + parseFloat(w, 10);
+      }, 0);
+      if (width > 0) {
+        tableStyle.width = width + 'px';
+      }
     }
 
     const Table = hasBody ? components.table : 'table';
@@ -169,7 +174,6 @@ const BaseTable = {
         body = getBodyWrapper(body);
       }
     }
-    const columns = this.getColumns();
     return (
       <Table class={tableClassName} style={tableStyle} key="table">
         <ColGroup columns={columns} fixed={fixed} />
@@ -180,4 +184,4 @@ const BaseTable = {
   },
 };
 
-export default connect()(BaseTable);
+export default BaseTable;

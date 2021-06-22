@@ -5,7 +5,7 @@ import PropTypes from '../_util/vue-types';
 import BaseMixin from '../_util/BaseMixin';
 import Icon from '../icon';
 import { getComponentFromProp, getOptionProps, getListeners } from '../_util/props-util';
-import { ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumerProps } from '../config-provider/configConsumerProps';
 import Base from '../base';
 
 const Drawer = {
@@ -80,6 +80,11 @@ const Drawer = {
     }
   },
   methods: {
+    domFocus() {
+      if (this.$refs.vcDrawer) {
+        this.$refs.vcDrawer.domFocus();
+      }
+    },
     close(e) {
       this.$emit('close', e);
     },
@@ -95,9 +100,14 @@ const Drawer = {
       });
     },
     pull() {
-      this.setState({
-        _push: false,
-      });
+      this.setState(
+        {
+          _push: false,
+        },
+        () => {
+          this.domFocus();
+        },
+      );
     },
     onDestroyTransitionEnd() {
       const isDestroyOnClose = this.getDestroyOnClose();
@@ -211,6 +221,7 @@ const Drawer = {
     const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
     const vcDrawerProps = {
+      ref: 'vcDrawer',
       props: {
         ...omit(rest, [
           'closable',

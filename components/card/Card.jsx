@@ -10,7 +10,7 @@ import {
   getListeners,
 } from '../_util/props-util';
 import BaseMixin from '../_util/BaseMixin';
-import { ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumerProps } from '../config-provider/configConsumerProps';
 
 const { TabPane } = Tabs;
 export default {
@@ -29,6 +29,7 @@ export default {
     size: PropTypes.oneOf(['default', 'small']),
     actions: PropTypes.any,
     tabList: PropTypes.array,
+    tabProps: PropTypes.object,
     tabBarExtraContent: PropTypes.any,
     activeTabKey: PropTypes.string,
     defaultActiveTabKey: PropTypes.string,
@@ -73,6 +74,7 @@ export default {
       size = 'default',
       type,
       tabList,
+      tabProps = {},
       hoverable,
       activeTabKey,
       defaultActiveTabKey,
@@ -146,6 +148,7 @@ export default {
     const tabsProps = {
       props: {
         size: 'large',
+        ...tabProps,
         [hasActiveTabKey ? 'activeKey' : 'defaultActiveKey']: hasActiveTabKey
           ? activeTabKey
           : defaultActiveTabKey,

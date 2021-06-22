@@ -10,6 +10,69 @@
 
 ---
 
+## 1.7.4
+
+`2021-02-28`
+
+- 🌟 优化 `Table` 性能 [#3531](https://github.com/vueComponent/ant-design-vue/issues/3531)
+## 1.7.3
+
+`2021-02-16`
+
+- 🌟 `Modal` api 方式调用支持定义关闭图标 [#3642](https://github.com/vueComponent/ant-design-vue/issues/3642)
+- 🌟 `Form` message 支持函数 [#3163](https://github.com/vueComponent/ant-design-vue/issues/3163)
+- 🌟 优化 `Progress` 动画效果 [#3510](https://github.com/vueComponent/ant-design-vue/issues/3510)
+- 🐞 修复 `AutoComplete` disabled 时背景颜色异常问题 [#3143](https://github.com/vueComponent/ant-design-vue/issues/3143)
+- 🐞 修复 `Alert` 关闭按钮在 safari 下显示异常问题 [#3184](https://github.com/vueComponent/ant-design-vue/issues/3184)
+- 🐞 修复 `Dropdown` 在 `ButtonGroup` 下显示位置错误问题 [#2995](https://github.com/vueComponent/ant-design-vue/issues/2995)
+- 🐞 修复 `RadioGroup` 阻止选中后，不再触发 change 事件问题 [#3047](https://github.com/vueComponent/ant-design-vue/issues/3047)
+- 🐞 修复 `Table` 无法排序的问题 [#3327](https://github.com/vueComponent/ant-design-vue/issues/3327)
+- 🐞 修复缺失 `Space` 组件类型文件问题 [#3340](https://github.com/vueComponent/ant-design-vue/issues/3340)
+- 🐞 修复 `Slider` 在小数精度下位置计算错误问题 [#3386](https://github.com/vueComponent/ant-design-vue/issues/3386)
+- 🐞 修复 `DatePicker` mode="decade" 失效问题 [#3536](https://github.com/vueComponent/ant-design-vue/issues/3536)
+- 🐞 修复 `Tabs` diabled 状态下依然可以通过键盘切换问题 [#3575](https://github.com/vueComponent/ant-design-vue/issues/3575)
+- 🐞 修复 `Menu` `forceSubMenuRender` 不生效问题 [#3615](https://github.com/vueComponent/ant-design-vue/issues/3615)
+- 🐞 修复 `Upload` `transformFile` 不执行问题 [#3636](https://github.com/vueComponent/ant-design-vue/issues/3636)
+
+## 1.7.2
+
+`2020-11-06`
+
+- 🐞 修复 Textarea 组件高度不正确问题 [#2974](https://github.com/vueComponent/ant-design-vue/issues/2974)
+- 🐞 回滚 Menu 组件到 1.6.5 版本一致 [#3112](https://github.com/vueComponent/ant-design-vue/issues/3112)
+- 🐞 修复 TreeSelect throw error [#3126](https://github.com/vueComponent/ant-design-vue/issues/3126)
+
+## 1.7.1
+
+`2020-10-28`
+
+- 🐞 修复 Menu 组件，错误展示 Tooltip 提示的问题
+
+## 1.7.0
+
+`2020-10-28`
+
+- 🌟 递归 Menu 组件，支持任意嵌套其他元素 [#1452](https://github.com/vueComponent/ant-design-vue/issues/1452)
+- 🇮🇪 添加爱尔兰语国际化支持
+- 🐞 修复 webpack 5 兼容问题。
+- 🐞 修复 Upload method 属性不生效问题 [#2837](https://github.com/vueComponent/ant-design-vue/issues/2837)
+- 🐞 修复 Space 未声明属性，不挂载根结点上问题 [#2902](https://github.com/vueComponent/ant-design-vue/issues/2902)
+- 🐞 修复 Table 组件 filter 不支持 number 类型问题 [#3052](https://github.com/vueComponent/ant-design-vue/issues/3052)
+- 🐞 修复 Table 固定列 ellipsis 不生效问题 [#2916](https://github.com/vueComponent/ant-design-vue/issues/2916)
+- 🐞 修复 AutoComplete 组件，需要两次 tab 键才可 focus 问题 [#1438](https://github.com/vueComponent/ant-design-vue/issues/1438)
+- 🐞 修复 TreeSelect 不能自定义 slot 问题 [#2827](https://github.com/vueComponent/ant-design-vue/issues/2827)
+
+## 1.6.5
+
+`2020-08-25`
+
+- 🔥🔥🔥 兼容 Vue 3 的 [2.0.0-beta.3](https://2x.antdv.com/) 版本发布
+- 🔥 新增 Space 组件 [#2669](https://github.com/vueComponent/ant-design-vue/pull/2669)
+- 🌟 优化 zh_TW 语言包 [#2679](https://github.com/vueComponent/ant-design-vue/pull/2679)
+- 🐞 修复面包屑 `Breadcrumb` 重复 key 问题 [#2505](https://github.com/vueComponent/ant-design-vue/issues/2505)
+- 🐞 修复 Table 固定列情况下错位问题 [#1493](https://github.com/vueComponent/ant-design-vue/issues/1493)
+- 🐞 修复 Mentions 组件为空时回车键报错的问题 [#2662](https://github.com/vueComponent/ant-design-vue/pull/2662)
+
 ## 1.6.4
 
 `2020-07-21`
